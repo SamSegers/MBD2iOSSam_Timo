@@ -18,34 +18,27 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         Parser = ApiParser();
+        NSNotificationCenter.defaultCenter().addObserver(self,selector: "receivedUserChecked",name: "UserCheked",object: nil);
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    func receivedUserChecked(object: AnyObject)
+    {
+        performSegueWithIdentifier("Login", sender: nil);
     }
 
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         if identifier == "Login"
         {
-            
-            // wachten om te kijken of de user + pass correct zijn
-            while(Parser?.Answer == "No Answer")
+            if(Parser?.AllowLoginSegue == true)
             {
-            
+                return true;
             }
-            
-            if(Parser?.Answer == "Error")
+            else
             {
-                let alert: UIAlertView;
-                alert = UIAlertView();
-                alert.title = "Password or User incorrect!";
-                alert.message = "Insert a valid password or user!";
-                alert.addButtonWithTitle("okay");
-                alert.show();
-            
                 return false;
             }
-            
-            Parser?.Answer = "No Answer";
         }
-        
         return true;
     }
     
@@ -57,6 +50,11 @@ class ViewController: UIViewController {
     @IBAction func LoginClicked(sender: AnyObject?)
     {
         Parser!.CheckUser(txtUser.text!,Password: txtPass.text!);
+    }
+    
+    @IBAction func SignupClicked(sender: AnyObject?)
+    {
+        Parser!.CreateUser(txtUser.text!,Password:  txtPass.text!);
     }
 }
 

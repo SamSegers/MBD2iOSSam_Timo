@@ -39,12 +39,19 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="skf-G4-3T4">
+                                <rect key="frame" x="173" y="421" width="88" height="62"/>
+                                <state key="normal" title="Signup"/>
+                                <connections>
+                                    <action selector="SignupClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MqL-Wh-2Jy"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bGo-hN-lZZ">
                                 <rect key="frame" x="173" y="323" width="88" height="72"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="LoginClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ha4-T6-WxD"/>
-                                    <segue destination="Dxg-uz-JgO" kind="show" id="w3J-3z-qqs"/>
+                                    <segue destination="Dxg-uz-JgO" kind="show" identifier="Login" id="w3J-3z-qqs"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -72,24 +79,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TaO-vn-hwB">
-                                <rect key="frame" x="381" y="79" width="114" height="30"/>
+                                <rect key="frame" x="133" y="89" width="114" height="30"/>
                                 <state key="normal" title="Edit races"/>
                                 <connections>
                                     <segue destination="Tva-76-ebi" kind="show" id="SGp-4V-BJO"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tlQ-8U-Pi9">
-                                <rect key="frame" x="352" y="434" width="114" height="30"/>
-                                <state key="normal" title="Pubs"/>
-                                <connections>
-                                    <segue destination="T3h-Ww-6fA" kind="show" id="49r-pf-9mv"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LhN-XH-MXb">
-                                <rect key="frame" x="343" y="346" width="133" height="30"/>
+                                <rect key="frame" x="124" y="337" width="133" height="30"/>
                                 <state key="normal" title="Take part in race"/>
                                 <connections>
                                     <segue destination="VIx-JE-Bde" kind="show" id="Vzs-he-RYJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tlQ-8U-Pi9">
+                                <rect key="frame" x="133" y="413" width="114" height="30"/>
+                                <state key="normal" title="Pubs"/>
+                                <connections>
+                                    <segue destination="T3h-Ww-6fA" kind="show" id="49r-pf-9mv"/>
                                 </connections>
                             </button>
                         </subviews>
