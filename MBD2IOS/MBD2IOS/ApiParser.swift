@@ -19,12 +19,12 @@ class ApiParser
     
     func CheckUser(Username: String, Password: String)
     {
-        let url = NSURL(string: "http://timohoff.nl/3001/login");
+        let url = NSURL(string: "http://timohoff.nl:3001/login");
         let request = NSMutableURLRequest(URL: url!);
         request.HTTPMethod = "POST";
         var body = "username=" + Username + "&password=" + Password;
-        request.setValue("Content-Type", forHTTPHeaderField: "application/x-www-form-urlencoded");
-        request.setValue("charset", forHTTPHeaderField: "utf-8");
+        request.setValue("Content-Type", forHTTPHeaderField: "x-www-form-urlencoded");
+        //request.setValue("charset", forHTTPHeaderField: "utf-8");
         request.HTTPBody = body.dataUsingEncoding(NSUTF8StringEncoding);
         let queue: NSOperationQueue = NSOperationQueue();
         NSURLConnection.sendAsynchronousRequest(request,queue: queue,completionHandler:{ (response: NSURLResponse?,data: NSData?,error: NSError?) -> Void in
@@ -32,22 +32,31 @@ class ApiParser
             if data != nil && data!.length > 0 && error == nil
             {
                 let httpResponse = response as! NSHTTPURLResponse;
-                
-                if(httpResponse.statusCode == 201)
+                let responsecode = httpResponse.statusCode;
+                if(responsecode == 200)
                 {
-                self.AllowLoginSegue = true;
-                NSNotificationCenter.defaultCenter().postNotificationName("UserChecked", object: nil);
+                    self.AllowLoginSegue = true;
+                    dispatch_async(dispatch_get_main_queue())
+                    {
+                    NSNotificationCenter.defaultCenter().postNotificationName("UserChecked", object: nil);
+                    }
                 }
                 else
                 {
                     self.AllowLoginSegue = false;
-                    NSNotificationCenter.defaultCenter().postNotificationName("UserChecked", object: nil);
+                    dispatch_async(dispatch_get_main_queue())
+                        {
+                            NSNotificationCenter.defaultCenter().postNotificationName("UserChecked", object: nil);
+                    }
                 }
             }
             else
             {
                 self.AllowLoginSegue = false;
-                NSNotificationCenter.defaultCenter().postNotificationName("UserChecked", object: nil);
+                dispatch_async(dispatch_get_main_queue())
+                    {
+                        NSNotificationCenter.defaultCenter().postNotificationName("UserChecked", object: nil);
+                }
             }
             
         });
@@ -55,23 +64,52 @@ class ApiParser
     
     func CreateUser(Username: String, Password: String)
     {
-        let url = NSURL(string: "http://timohoff.nl/3001/signup");
+        let url = NSURL(string: "http://timohoff.nl:3001/signup");
         let request = NSMutableURLRequest(URL: url!);
         request.HTTPMethod = "POST";
-        request.setValue("Content-Type", forHTTPHeaderField: "application/x-www-form-urlencoded");
-        request.setValue("charset", forHTTPHeaderField: "utf-8");
+        request.setValue("Content-Type", forHTTPHeaderField: "x-www-form-urlencoded");
+        //request.setValue("charset", forHTTPHeaderField: "utf-8");
         var body = "username=" + Username + "&password=" + Password;
         request.HTTPBody = body.dataUsingEncoding(NSUTF8StringEncoding);
         let queue: NSOperationQueue = NSOperationQueue();
         NSURLConnection.sendAsynchronousRequest(request,queue: queue,completionHandler:{ (response: NSURLResponse?,data: NSData?,error: NSError?) -> Void in
             if data != nil && data!.length > 0 && error == nil
             {
-                
+                let httpResponse = response as! NSHTTPURLResponse;
+                let responsecode = httpResponse.statusCode;
+                if(responsecode == 200)
+                {
+                    
+                }
+
             }
 
             
         });
     }
+    
+    func LoadPubs()
+    {
+        let url = NSURL(string: "http://timohoff.nl:3001/pubs");
+        let request = NSMutableURLRequest(URL: url!);
+        request.HTTPMethod = "GET";
+        let queue: NSOperationQueue = NSOperationQueue();
+        NSURLConnection.sendAsynchronousRequest(request,queue: queue,completionHandler:{ (response: NSURLResponse?,data: NSData?,error: NSError?) -> Void in
+            if data != nil && data!.length > 0 && error == nil
+            {
+                
+                dispatch_async(dispatch_get_main_queue())
+                    {
+                        NSNotificationCenter.defaultCenter().postNotificationName("PubsLoaded", object: nil, userInfo: ["data": data!]);
+                        
+                        //["data": data!]
+                }
+
+            }
+            
+        });
+    }
+    
     /*
     func LoadRaces()
     {
@@ -129,19 +167,7 @@ class ApiParser
         });
     }
     
-    func LoadPubs()
-    {
-        let url = NSURL(string: "");
-        let request = NSURLRequest(URL: url!);
-        let queue: NSOperationQueue = NSOperationQueue();
-        NSURLConnection.sendAsynchronousRequest(request,queue: queue,completionHandler:{ (response: NSURLResponse?,data: NSData?,error: NSError?) -> Void in
-            if data!.length > 0 && error == nil
-            {
-                
-            }
-            
-        });
-    }
+    
     
     func LoadPubData(Pub: String)
     {

@@ -12,19 +12,20 @@ class ViewController: UIViewController {
 
     @IBOutlet var txtUser: UITextField!;
     @IBOutlet var txtPass: UITextField!;
+    @IBOutlet var btnLogin: UIButton!;
     
     var Parser: ApiParser?;
     
     override func viewDidLoad() {
         super.viewDidLoad()
         Parser = ApiParser();
-        NSNotificationCenter.defaultCenter().addObserver(self,selector: "receivedUserChecked",name: "UserCheked",object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self,selector: "receivedUserChecked",name: "UserChecked",object: nil);
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    func receivedUserChecked(object: AnyObject)
+    func receivedUserChecked()
     {
-        performSegueWithIdentifier("Login", sender: nil);
+        self.performSegueWithIdentifier("Login", sender: nil);
     }
 
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
@@ -32,6 +33,9 @@ class ViewController: UIViewController {
         {
             if(Parser?.AllowLoginSegue == true)
             {
+                User.Name = txtUser.text;
+                User.Pass = txtPass.text;
+                Parser?.AllowLoginSegue = false;
                 return true;
             }
             else

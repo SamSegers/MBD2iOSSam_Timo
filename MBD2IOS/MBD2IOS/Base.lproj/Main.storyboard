@@ -58,6 +58,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="btnLogin" destination="bGo-hN-lZZ" id="xxg-YC-hg3"/>
                         <outlet property="txtPass" destination="JQB-D1-lkE" id="Ldo-td-OJL"/>
                         <outlet property="txtUser" destination="uCo-SY-xFD" id="1Zd-c8-X6h"/>
                     </connections>
@@ -78,25 +79,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TaO-vn-hwB">
-                                <rect key="frame" x="133" y="89" width="114" height="30"/>
-                                <state key="normal" title="Edit races"/>
-                                <connections>
-                                    <segue destination="Tva-76-ebi" kind="show" id="SGp-4V-BJO"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LhN-XH-MXb">
-                                <rect key="frame" x="124" y="337" width="133" height="30"/>
+                                <rect key="frame" x="124" y="172" width="133" height="30"/>
                                 <state key="normal" title="Take part in race"/>
                                 <connections>
                                     <segue destination="VIx-JE-Bde" kind="show" id="Vzs-he-RYJ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tlQ-8U-Pi9">
-                                <rect key="frame" x="133" y="413" width="114" height="30"/>
+                                <rect key="frame" x="133" y="225" width="114" height="30"/>
                                 <state key="normal" title="Pubs"/>
                                 <connections>
                                     <segue destination="T3h-Ww-6fA" kind="show" id="49r-pf-9mv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TaO-vn-hwB">
+                                <rect key="frame" x="133" y="89" width="114" height="30"/>
+                                <state key="normal" title="Edit races"/>
+                                <connections>
+                                    <segue destination="Tva-76-ebi" kind="show" id="SGp-4V-BJO"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -131,10 +132,10 @@
             </objects>
             <point key="canvasLocation" x="664" y="-1106"/>
         </scene>
-        <!--View Controller-->
+        <!--Pubs View Controller-->
         <scene sceneID="u2s-pn-5Lh">
             <objects>
-                <viewController id="T3h-Ww-6fA" sceneMemberID="viewController">
+                <viewController id="T3h-Ww-6fA" customClass="PubsViewController" customModule="MBD2IOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="e58-nO-d1i"/>
                         <viewControllerLayoutGuide type="bottom" id="Vne-Oq-eNC"/>
@@ -144,16 +145,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1cI-ZK-jgm">
-                                <rect key="frame" x="0.0" y="28" width="600" height="457"/>
+                                <rect key="frame" x="9" y="0.0" width="600" height="457"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="T3h-Ww-6fA" id="c5f-LK-xyu"/>
+                                    <outlet property="delegate" destination="T3h-Ww-6fA" id="cAh-95-kUY"/>
+                                </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="owu-5k-i5x">
-                                <rect key="frame" x="239" y="505" width="122" height="53"/>
-                                <state key="normal" title="Add pub"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="tblPubs" destination="1cI-ZK-jgm" id="lzW-Zh-LMG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QiP-Bn-X83" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

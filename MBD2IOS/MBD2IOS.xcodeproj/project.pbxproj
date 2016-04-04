@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC4892311CB2EE7C00353E59 /* PubsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4892301CB2EE7C00353E59 /* PubsViewController.swift */; };
+		FC9500E81CB2712A004E146F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9500E71CB2712A004E146F /* User.swift */; };
 		FC9739931CA8587B00A933EC /* ApiParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9739921CA8587B00A933EC /* ApiParser.swift */; };
 		FCACFECD1CA3471D006BD6DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCACFECC1CA3471D006BD6DF /* AppDelegate.swift */; };
 		FCACFECF1CA3471D006BD6DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCACFECE1CA3471D006BD6DF /* ViewController.swift */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FC4892301CB2EE7C00353E59 /* PubsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubsViewController.swift; sourceTree = "<group>"; };
+		FC9500E71CB2712A004E146F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FC9739921CA8587B00A933EC /* ApiParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiParser.swift; sourceTree = "<group>"; };
 		FCACFEC91CA3471D006BD6DF /* MBD2IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MBD2IOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCACFECC1CA3471D006BD6DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +110,8 @@
 				FCACFED51CA3471D006BD6DF /* LaunchScreen.storyboard */,
 				FCACFED81CA3471D006BD6DF /* Info.plist */,
 				FC9739921CA8587B00A933EC /* ApiParser.swift */,
+				FC9500E71CB2712A004E146F /* User.swift */,
+				FC4892301CB2EE7C00353E59 /* PubsViewController.swift */,
 			);
 			path = MBD2IOS;
 			sourceTree = "<group>";
@@ -259,7 +265,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC9500E81CB2712A004E146F /* User.swift in Sources */,
 				FCACFECF1CA3471D006BD6DF /* ViewController.swift in Sources */,
+				FC4892311CB2EE7C00353E59 /* PubsViewController.swift in Sources */,
 				FC9739931CA8587B00A933EC /* ApiParser.swift in Sources */,
 				FCACFECD1CA3471D006BD6DF /* AppDelegate.swift in Sources */,
 			);
