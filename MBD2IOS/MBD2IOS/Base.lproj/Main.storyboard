@@ -79,13 +79,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LhN-XH-MXb">
-                                <rect key="frame" x="124" y="172" width="133" height="30"/>
-                                <state key="normal" title="Take part in race"/>
-                                <connections>
-                                    <segue destination="VIx-JE-Bde" kind="show" id="Vzs-he-RYJ"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tlQ-8U-Pi9">
                                 <rect key="frame" x="133" y="225" width="114" height="30"/>
                                 <state key="normal" title="Pubs"/>
@@ -100,6 +93,13 @@
                                     <segue destination="Tva-76-ebi" kind="show" id="SGp-4V-BJO"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LhN-XH-MXb">
+                                <rect key="frame" x="124" y="172" width="133" height="30"/>
+                                <state key="normal" title="Take part in race"/>
+                                <connections>
+                                    <segue destination="VIx-JE-Bde" kind="show" id="Vzs-he-RYJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -108,10 +108,10 @@
             </objects>
             <point key="canvasLocation" x="-10" y="-1133"/>
         </scene>
-        <!--View Controller-->
+        <!--Races View Controller-->
         <scene sceneID="N1G-jW-AXS">
             <objects>
-                <viewController id="VIx-JE-Bde" sceneMemberID="viewController">
+                <viewController id="VIx-JE-Bde" customClass="RacesViewController" customModule="MBD2IOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gL5-OR-WcH"/>
                         <viewControllerLayoutGuide type="bottom" id="Qti-6f-Eq8"/>
@@ -121,12 +121,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mm7-nT-JQQ">
-                                <rect key="frame" x="0.0" y="42" width="600" height="558"/>
+                                <rect key="frame" x="5" y="0.0" width="600" height="558"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="VIx-JE-Bde" id="7Nk-BC-82Z"/>
+                                    <outlet property="delegate" destination="VIx-JE-Bde" id="XYc-8b-sDt"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="tblRaces" destination="mm7-nT-JQQ" id="cmc-Yx-Wz1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XDa-RT-5uK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

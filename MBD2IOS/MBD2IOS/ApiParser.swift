@@ -110,6 +110,26 @@ class ApiParser
         });
     }
     
+    func LoadRaces()
+    {
+        let url = NSURL(string: "http://timohoff.nl:3001/races");
+        let request = NSMutableURLRequest(URL: url!);
+        request.HTTPMethod = "GET";
+        let queue: NSOperationQueue = NSOperationQueue();
+        NSURLConnection.sendAsynchronousRequest(request,queue: queue,completionHandler:{ (response: NSURLResponse?,data: NSData?,error: NSError?) -> Void in
+            if data != nil && data!.length > 0 && error == nil
+            {
+                dispatch_async(dispatch_get_main_queue())
+                {
+                        NSNotificationCenter.defaultCenter().postNotificationName("RacesLoaded", object: nil, userInfo: ["data": data!]);
+                        
+                        //["data": data!]
+                }
+            }
+            
+        });
+    }
+    
     /*
     func LoadRaces()
     {

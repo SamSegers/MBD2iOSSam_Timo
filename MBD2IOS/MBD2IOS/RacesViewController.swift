@@ -1,43 +1,44 @@
 //
-//  PubsViewController.swift
+//  RacesViewController.swift
 //  MBD2IOS
 //
-//  Created by Sam Segers on 04/04/2016.
+//  Created by Sam Segers on 05/04/2016.
 //  Copyright © 2016 Sam Segers. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class PubsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
+class RacesViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 {
     var Parser: ApiParser?;
-    
-    @IBOutlet var tblPubs: UITableView!;
+    @IBOutlet var tblRaces: UITableView!;
     var TableData = [""];
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        Parser = ApiParser();
         TableData = [];
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "receivedPubs:", name: "PubsLoaded", object: nil);
+        Parser = ApiParser();
         
-        Parser?.LoadPubs();
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "receivedRaces:", name: "RacesLoaded", object: nil);
+       
+        Parser?.LoadRaces();
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    func receivedPubs(notification: NSNotification)
+    func receivedRaces(notification: NSNotification)
     {
         let info = notification.userInfo as? Dictionary <String,NSData>;
         let data = info!["data"];
-        var jsondata: NSDictionary!;
+        var jsondata: NSArray!;
         do{
-        jsondata = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary;
+            jsondata = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSArray;
         } catch
         {
-        
+            
         }
         
-        var results: NSArray = jsondata["results"] as! NSArray;
+        var results: NSArray = jsondata as! NSArray;
         
         
         for item in results
@@ -48,7 +49,7 @@ class PubsViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         //TableData.append();
         
-        self.tblPubs.reloadData();
+        self.tblRaces.reloadData();
         //notification.userInfo;
     }
     
@@ -73,5 +74,4 @@ class PubsViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         Cell.textLabel?.text = TableData[row];
         return Cell;
     }
-
-}
+};

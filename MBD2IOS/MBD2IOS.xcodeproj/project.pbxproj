@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FC4892311CB2EE7C00353E59 /* PubsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4892301CB2EE7C00353E59 /* PubsViewController.swift */; };
+		FC5073941CB3E68100C44EC5 /* RacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5073931CB3E68100C44EC5 /* RacesViewController.swift */; };
 		FC9500E81CB2712A004E146F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9500E71CB2712A004E146F /* User.swift */; };
 		FC9739931CA8587B00A933EC /* ApiParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9739921CA8587B00A933EC /* ApiParser.swift */; };
 		FCACFECD1CA3471D006BD6DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCACFECC1CA3471D006BD6DF /* AppDelegate.swift */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		FC4892301CB2EE7C00353E59 /* PubsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubsViewController.swift; sourceTree = "<group>"; };
+		FC5073931CB3E68100C44EC5 /* RacesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RacesViewController.swift; sourceTree = "<group>"; };
 		FC9500E71CB2712A004E146F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FC9739921CA8587B00A933EC /* ApiParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiParser.swift; sourceTree = "<group>"; };
 		FCACFEC91CA3471D006BD6DF /* MBD2IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MBD2IOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,6 +114,7 @@
 				FC9739921CA8587B00A933EC /* ApiParser.swift */,
 				FC9500E71CB2712A004E146F /* User.swift */,
 				FC4892301CB2EE7C00353E59 /* PubsViewController.swift */,
+				FC5073931CB3E68100C44EC5 /* RacesViewController.swift */,
 			);
 			path = MBD2IOS;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC9500E81CB2712A004E146F /* User.swift in Sources */,
+				FC5073941CB3E68100C44EC5 /* RacesViewController.swift in Sources */,
 				FCACFECF1CA3471D006BD6DF /* ViewController.swift in Sources */,
 				FC4892311CB2EE7C00353E59 /* PubsViewController.swift in Sources */,
 				FC9739931CA8587B00A933EC /* ApiParser.swift in Sources */,
